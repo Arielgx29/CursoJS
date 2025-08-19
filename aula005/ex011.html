@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de país</title>
+</head>
+
+<style>
+  body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(24, 0, 0, 0.2);
+      text-align: center;
+      width: 300px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    p {
+      margin: 10px 0;
+      font-weight: bold;
+      color: #444;
+    }
+
+    input[type="text"] {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input[type="text"]:focus {
+      border-color: #4facfe;
+      box-shadow: 0 0 8px rgba(79, 172, 254, 0.6);
+    }
+
+    input[type="button"] {
+      padding: 10px 15px;
+      margin: 8px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    input[value="Verificar"] {
+      background-color: #4facfe;
+      color: white;
+    }
+
+    input[value="Verificar"]:hover {
+      background-color: #007adf;
+    }
+
+    input[value="Limpar"] {
+      background-color: #ff4d4d;
+      color: white;
+    }
+
+    input[value="Limpar"]:hover {
+      background-color: #cc0000;
+    }
+
+    #res {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      min-height: 30px;
+    }
+
+      @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div id="container">
+
+    <h1>Verificador de País</h1>
+
+    <p>Digite seu país:</p>
+
+    <input type="text" name="txtpaís" id="txtpaís" class="pais" placeholder="ex:Brasil"> <input type="button" value="Verificar" onclick="verificarPaís()">
+    <input type="button" value="Limpar" onclick="limparCampos()">
+
+    <div id="res"></div>
+
+    <script> 
+    
+      function verificarPaís() {
+
+            var txtpaís = window.document.getElementById('txtpaís').value
+            var res = window.document.getElementById('res')
+
+            if (txtpaís === '') {
+                res.innerHTML = 'Por favor, digite um país'
+
+            } else {
+
+                if (txtpaís == 'Brasil') {
+                    res.innerHTML = `Vivendo em ${txtpaís}<br>Você é Brasileiro`
+
+                } else {
+                    res.innerHTML = 'Vivendo em ' + txtpaís + ' <br> você é estrangeiro'
+                }
+            }
+        } 
+
+        function limparCampos() {
+            document.getElementById('txtpaís').value = ''
+            document.getElementById('res').innerHTML = ''
+        }
+       
+     </script>
+
+</div>
+
+</body>
+
+</html>
